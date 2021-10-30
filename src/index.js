@@ -1,9 +1,10 @@
 var express = require('express');
+var uuid = require('uuid');
 var app = express();
 
 
-const server = app.listen(process.env.PORT , function () {
-  console.log('Example app listening on port 3000!');
+const server = app.listen(process.env.PORT || 3000, function () {
+  console.log('Example app listening on port !'+ process.env.PORT);
 });
 
 
@@ -29,9 +30,9 @@ io.on('connection', socket => {
     var rand = Math.floor(Math.random() * (10 - 0) + 0);
     
   socket.emit('request',  {
-  "time_exchange": "2021-10-12T11:44:15.1073290Z",
-  "time_coinapi": "2021-10-12T11:44:15.1743171Z",
-  "uuid": "e9c5d30f-151b-484d-a019-ed9254da281a",
+  "time_exchange": new Date(),
+  "time_coinapi": new Date(),
+  "uuid": uuid.v4(),
   "price": (57330.24) + (rand),
   "size": 0.00069483,
   "taker_side": "SELL",
