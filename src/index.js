@@ -1,7 +1,8 @@
 var express = require('express');
 var app = express();
 
-const server = app.listen(3000, function () {
+
+const server = app.listen(process.env.PORT , function () {
   console.log('Example app listening on port 3000!');
 });
 
