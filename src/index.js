@@ -27,7 +27,7 @@ io.on('connection', socket => {
   })
 
   setInterval(function() {
-    var rand = Math.floor(Math.random() * (10 - 0) + 0);
+  var rand = Math.floor(Math.random() * (10 - 0) + 0);
     
   socket.emit('request',  {
   "time_exchange": new Date(),
@@ -40,7 +40,7 @@ io.on('connection', socket => {
   "sequence": 8408,
   "type": "trade"
     }); // emit an event to the socket  
-  }, 1000);
+  }, 3000);
   
   io.emit('broadcast', /* … */); // emit an event to all connected sockets
   socket.on('reply', () => { /* … */ }); // listen to the event
